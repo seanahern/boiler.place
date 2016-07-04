@@ -1,0 +1,11 @@
+* {
+  border: 0;
+  margin: 0; padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  text-align: center;
+  font-family: "Courier New", monospace;
+  letter-spacing: 1px;
+}
