@@ -7,6 +7,8 @@ module BoilerPlace
       set :logging, true
     end
 
+    set :hostname, ENV['HOST']
+
     not_found do
       erb :notfound, :layout => :layout
     end
