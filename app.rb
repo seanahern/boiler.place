@@ -8,6 +8,7 @@ module BoilerPlace
     end
 
     set :hostname, ENV['HOST']
+    set :ga, ENV['GA']
 
     not_found do
       erb :notfound, :layout => :layout
