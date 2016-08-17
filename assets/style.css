@@ -11,7 +11,7 @@ a:active,
 a:hover,
 a:link,
 a:visited {
-  color: #535353;
+  color: #222222;
   text-decoration:none;
   border-bottom: 1px solid currentColor;
 }
@@ -47,8 +47,8 @@ code {
   padding: 0.8em 1.3em;
   border-radius: 4px;
   margin-bottom: 20px;
-  color: #535353;
-  font-family: "Source Code Pro", monospace;
+  color: #222222;
+  font-family: -apple-system, "Source Code Pro", monospace;
 }
 
 p {
@@ -60,7 +60,7 @@ p {
 h1 {
   font-size: 1.4em;
   font-weight: normal;
-  color: #535353;
+  color: #222222;
   margin-bottom: 1.7em;
 }
 
