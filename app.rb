@@ -26,7 +26,11 @@ module BoilerPlace
       width = params[:width]
       height = params[:height]
       halt 400 unless valid_params width, height
-      send_file generate_file_name width, height
+      if (valid_params(width, height))
+        send_file generate_file_name(width, height)
+      else
+        halt 400
+      end
     end
 
     private
@@ -34,8 +38,11 @@ module BoilerPlace
         sample_name = Dir.glob("source/*.jpg").sample
         candidate_name = File.basename(sample_name, ".jpg").to_s
         candidate_path = ["output/", candidate_name, "-", width, "-", height, ".jpg"].join
-        generate_file(width, height, candidate_path, sample_name) unless FileTest.exist?(candidate_path)
-        candidate_path # File already exists, send em the cached version
+        if (FileTest.exist?(candidate_path))
+          candidate_path # File already exists, send em the cached version
+        else
+          generate_file(width, height, candidate_path, sample_name)
+        end
       end
 
       def generate_file(width, height, path, name)
@@ -46,9 +53,13 @@ module BoilerPlace
       end
 
       def valid_params(width, height)
-        halt 400, "Width is not a number" unless width.to_i.to_s === width && width.to_i > 0 && width != nil
-        halt 400, "Height is not a number" unless height.to_i.to_s === height && height.to_i > 0 && height != nil
-        true
+        if !(width.to_i.to_s === width && width.to_i > 0 && width != nil)
+          halt 400, "Width is not a number"
+        elsif !(height.to_i.to_s === height && height.to_i > 0 && height != nil)
+          halt 400, "Height is not a number"
+        else
+          true
+        end
       end
   end
 end
