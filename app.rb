@@ -55,7 +55,7 @@ module BoilerPlace
       def valid_params(width, height)
         if !(width.to_i.to_s === width && width.to_i > 0 && width != nil)
           halt 400, "Width is not a number"
-        else if !( unless height.to_i.to_s === height && height.to_i > 0 && height != nil)
+        elsif !(height.to_i.to_s === height && height.to_i > 0 && height != nil)
           halt 400, "Height is not a number"
         else
           true
