@@ -1,5 +1,5 @@
 require "sinatra"
-require 'RMagick'
+require "RMagick"
 
 module BoilerPlace
   class App < Sinatra::Base
@@ -7,15 +7,15 @@ module BoilerPlace
       set :logging, true
     end
 
-    set :hostname, ENV['HOST']
-    set :ga, ENV['GA']
+    set :hostname, ENV["HOST"]
+    set :ga, ENV["GA"]
 
     not_found do
-      erb :notfound, :layout => :layout
+      erb :notfound, layout: :layout
     end
 
     get "/" do
-      erb :index, :layout => :layout
+      erb :index, layout: :layout
     end
 
     get "/assets/style.css" do
